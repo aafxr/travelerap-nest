@@ -1,5 +1,5 @@
 import { User } from 'src/User/entity/user.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Photo {
@@ -20,8 +20,4 @@ export class Photo {
 
   @Column()
   isPublished: boolean;
-
-  @ManyToOne(() => User, (user) => user.id)
-  user: User
-
 }
