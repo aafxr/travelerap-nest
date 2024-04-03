@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entity/user.entity';
 import { Photo } from './photo/entity/photo.entity';
 import { LoggerMiddleware } from './logger/logger.middleware';
+import { AuthMiddleware } from './auth/auth.middleware';
 
 @Module({
   imports: [
@@ -37,5 +38,9 @@ export class AppModule implements NestModule{
       consumer
       .apply(LoggerMiddleware)
       .forRoutes('*')
+
+      consumer
+        .apply(AuthMiddleware)
+        .forRoutes('*')
   }
 }
