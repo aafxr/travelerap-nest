@@ -18,4 +18,7 @@ export class PhotoDTO {
 
   @IsBoolean()
   isPublished: boolean;
+
+  @IsString()
+  user: string
 }

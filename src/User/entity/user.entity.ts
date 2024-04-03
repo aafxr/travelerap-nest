@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Photo } from 'src/photo/entity/photo.entity';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -16,4 +17,7 @@ export class User {
 
   @Column({ name: 'photo_url'})
   photoUrl: string;
+
+  @OneToMany(() => Photo, (photo) => photo.user, { onDelete: 'CASCADE'})
+  photos: Photo[]
 }
