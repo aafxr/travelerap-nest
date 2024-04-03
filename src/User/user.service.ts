@@ -30,7 +30,7 @@ export class UserService {
   async deleteUserById(id: string) {
     const user = await this.userRepository.findOne({ where: { id } });
     if (user) {
-      await this.userRepository.remove(user);
+      await this.userRepository.remove(user)
     }
     return { ok: true };
   }

@@ -18,6 +18,6 @@ export class User {
   @Column({ name: 'photo_url'})
   photoUrl: string;
 
-  @OneToMany(() => Photo, (photo) => photo.user, { onDelete: 'CASCADE'})
+  @OneToMany(() => Photo, (photo) => photo.user)
   photos: Photo[]
 }
